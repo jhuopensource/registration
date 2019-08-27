@@ -2,54 +2,49 @@
 {% block content %}
 <div class="content-section">
 	<h3>Hello, {{student.jhed }}!</h3>
-	{% if doubles|length > 0 %}
-	<p> You have attempted to register for the following courses that you are already enrolled/waitlisted in: </p>
-	<h1> {{ doubles }}</h1>
-	{% else %}
 	<p class="text-muted">Here are the PILOT sections you have selected, click 'Confirm' to solidify your registration results! </p>
 	<div class="article-metadata">
-	<h5>You were <b>successfully</b> enrolled in the following PILOT sections: </h5>
+		<h5>You were <b>successfully</b> enrolled in the following PILOT sections: </h5>
 	</div><br>
-		{% if vacant|length > 0 %}
-			<div class="card-container">
-				{% for meeting in vacant %}
-				<div class="course-card {%  cycle 'semesterly-red' 'semesterly-blue' 'semesterly-green' 'semesterly-yellow' %}">
-					<div class="slot-bar
+	{% if vacant|length > 0 %}
+	<div class="card-container">
+		{% for meeting in vacant %}
+		<div class="course-card {%  cycle 'semesterly-red' 'semesterly-blue' 'semesterly-green' 'semesterly-yellow' %}">
+			<div class="slot-bar
                                     {%  cycle 'semesterly-dark-red' 'semesterly-dark-blue' 'semesterly-dark-green' 'semesterly-dark-yellow' %}"></div>
-					<p class="stat-course">{{ meeting.course }}</p>
-					<p>{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }}</p>
-				</div>
-				{% endfor %}
-			</div>
-		{% else %}
-			<h6 class="stat-course">You are not enrolled in any sections..</h6>
-		{% endif %}
-		<br>
+			<p class="stat-course">{{ meeting.course }}</p>
+			<p>{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }}</p>
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+	<h6 class="stat-course">You are not enrolled in any sections..</h6>
+	{% endif %}
+	<br>
 	<div class="article-metadata">
-	<h5>You were <b>waitlisted</b> for the following PILOT sections: </h5>
+		<h5>You were <b>waitlisted</b> for the following PILOT sections: </h5>
 	</div><br>
 	{% if full|length > 0 %}
-		<div class="card-container">
-			{% for meeting in full %}
-				<div class="course-card {%  cycle 'semesterly-red' 'semesterly-blue' 'semesterly-green' 'semesterly-yellow' %}">
-					<div class="slot-bar
+	<div class="card-container">
+		{% for meeting in full %}
+		<div class="course-card {%  cycle 'semesterly-red' 'semesterly-blue' 'semesterly-green' 'semesterly-yellow' %}">
+			<div class="slot-bar
 										{%  cycle 'semesterly-dark-red' 'semesterly-dark-blue' 'semesterly-dark-green' 'semesterly-dark-yellow' %}"></div>
-					<p class="stat-course">{{ meeting.course }}</p>
-					<p>{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }}</p>
-				</div>
-			{% endfor %}
+			<p class="stat-course">{{ meeting.course }}</p>
+			<p>{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }}</p>
 		</div>
+		{% endfor %}
+	</div>
 	{% else %}
-			<h6 class="stat-course">You are not waitlisted for any sections.</h6>
+	<h6 class="stat-course">You are not waitlisted for any sections.</h6>
 	{% endif %}
-		<br>
-		<form method="post">
-			{% csrf_token %}
-			<input type="submit" value="Confirm">
-		</form><br>
-		<h7>You will receive an email confirmation to <b>{{student.jhed}}@jhu.edu</b> with your registration results.</h7><br>
+	<br>
+	<form method="post">
+		{% csrf_token %}
+		<input type="submit" value="Confirm">
+	</form><br>
+	<h7>You will receive an email confirmation to <b>{{student.jhed}}@jhu.edu</b> with your registration results.</h7><br>
 	<small>If you have concerns, please reach out to Ariane Kelly at <b>example@jhu.edu</b></small><br>
-	{% endif %}
 </div>
 
 {% endblock content %}
