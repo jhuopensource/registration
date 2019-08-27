@@ -7,14 +7,16 @@
 	<h5>You were <b>successfully</b> enrolled in the following PILOT sections: </h5>
 	</div><br>
 		{% if vacant|length > 0 %}
-			{% for time in vacant %}
-				<h6 class="stat-course"><b>{{ time.course }}</b></h6>
-				<ul>
-					<li><b>Day: </b>{{ time.day }}</li>
-					<li><b>Time: </b>{{time.start_time}} - {{time.end_time}}</li>
-					<li><b>Location: </b> TBD</li>
-				</ul>
-			{% endfor %}
+			<div class="card-container">
+				{% for meeting in vacant %}
+				<div class="course-card {%  cycle 'semesterly-red' 'semesterly-blue' 'semesterly-green' 'semesterly-yellow' %}">
+					<div class="slot-bar
+                                    {%  cycle 'semesterly-dark-red' 'semesterly-dark-blue' 'semesterly-dark-green' 'semesterly-dark-yellow' %}"></div>
+					<p class="stat-course">{{ meeting.course }}</p>
+					<p>{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }} TBD</p>
+				</div>
+				{% endfor %}
+			</div>
 		{% else %}
 			<h6 class="stat-course">You are not enrolled in any sections..</h6>
 		{% endif %}
@@ -23,14 +25,16 @@
 	<h5>You were <b>waitlisted</b> for the following PILOT sections: </h5>
 	</div><br>
 	{% if full|length > 0 %}
-		{% for time in full %}
-			<h6 class="stat-course"><b>{{ time.course }}</b></h6>
-			<ul>
-				<li><b>Day: </b>{{ time.day }}</li>
-				<li><b>Time: </b>{{time.start_time}} - {{time.end_time}}</li>
-				<li><b>Location: </b> TBD</li>
-			</ul>
-		{% endfor %}
+		<div class="card-container">
+			{% for meeting in full %}
+				<div class="course-card {%  cycle 'semesterly-red' 'semesterly-blue' 'semesterly-green' 'semesterly-yellow' %}">
+					<div class="slot-bar
+										{%  cycle 'semesterly-dark-red' 'semesterly-dark-blue' 'semesterly-dark-green' 'semesterly-dark-yellow' %}"></div>
+					<p class="stat-course">{{ meeting.course }}</p>
+					<p>{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }} TBD</p>
+				</div>
+			{% endfor %}
+		</div>
 	{% else %}
 			<h6 class="stat-course">You are not waitlisted for any sections.</h6>
 	{% endif %}
