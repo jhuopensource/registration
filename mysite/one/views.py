@@ -129,10 +129,19 @@ def get_details(request, pk, course_list):
 				meetings = Meeting.objects.filter(course=course)
 				meetings = list(meetings)
 				object_meetings_dict[course] = meetings
+
+		enrolled = Meeting.objects.filter(students=student)
+		waitlist = Meeting.objects.filter(waitlist=student)
+		registered = []
+		for e in enrolled:
+			registered.append(e.course)
+		for w in waitlist:
+			registered.append(w.course)
 		context= {
 			'title': 'Meeting Times | PILOT Registration',
 			'student': student,
 			'meetings': object_meetings_dict,
+			'registered': registered
 		}
 		return render(request, 'one/meetings.html/', context=context)
 
@@ -149,22 +158,11 @@ def register_results(request, pk, course_list, vacant, full):
 		course_list = course_list.split('%')
 		vacant = vacant.split('%')
 		full = full.split('%')
-		course_codes = []
 
 		for id in course_list:
 			if id != '':
 				course = get_object_or_404(Course, pk=id)
 				courses.append(course)
-				course_codes.append(course.code)
-
-		enrolled = Meeting.objects.filter(students=student)
-		waitlist = Meeting.objects.filter(waitlist=student)
-		for e in enrolled:
-			if e.course in courses:
-				doubles.append(e.course)
-		for w in waitlist:
-			if w.course in courses:
-				doubles.append(e.course)
 
 		for id in vacant:
 			if id != '':
@@ -178,7 +176,7 @@ def register_results(request, pk, course_list, vacant, full):
 		context = {
 			'title': 'Registration Results | PILOT Registration',
 			'student' : student,
-			'courses': course_list,
+			'courses': courses,
 			'vacant': vacant_meetings,
 			'full': full_meetings,
 			'doubles': doubles
