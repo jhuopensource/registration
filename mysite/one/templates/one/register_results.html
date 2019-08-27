@@ -2,6 +2,10 @@
 {% block content %}
 <div class="content-section">
 	<h3>Hello, {{student.jhed }}!</h3>
+	{% if doubles|length > 0 %}
+	<p> You have attempted to register for the following courses that you are already enrolled/waitlisted in: </p>
+	<h1> {{ doubles }}</h1>
+	{% else %}
 	<p class="text-muted">Here are the PILOT sections you have selected, click 'Confirm' to solidify your registration results! </p>
 	<div class="article-metadata">
 	<h5>You were <b>successfully</b> enrolled in the following PILOT sections: </h5>
@@ -45,5 +49,7 @@
 		</form><br>
 		<h7>You will receive an email confirmation to <b>{{student.jhed}}@jhu.edu</b> with your registration results.</h7><br>
 	<small>If you have concerns, please reach out to Ariane Kelly at <b>example@jhu.edu</b></small><br>
+	{% endif %}
 </div>
+
 {% endblock content %}
