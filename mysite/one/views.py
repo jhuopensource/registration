@@ -60,7 +60,7 @@ def get_results(request, pk):
 	student = StudentUser.objects.filter(id=pk).first()
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
-			return redirect('one:detail', pk=student.id)
+		return redirect('one:detail', pk=student.id)
 	# if a GET (or any other method) we'll create a blank form
 	else:
 		context = {
@@ -93,7 +93,7 @@ def get_courses(request, pk):
 			course_list = request.POST.getlist('classes')
 			for id in course_list:
 				course_string += str(id) + "%"
-			# redirect to a new URL:
+		# redirect to a new URL:
 		return redirect('one:meetings', pk=student.id, course_list=course_string)
 
 @login_required
@@ -138,6 +138,7 @@ def get_details(request, pk, course_list):
 
 @login_required
 def register_results(request, pk, course_list, vacant, full):
+	doubles = []
 	if request.method == 'POST':
 		return redirect('one:status')
 	else:
@@ -148,10 +149,22 @@ def register_results(request, pk, course_list, vacant, full):
 		course_list = course_list.split('%')
 		vacant = vacant.split('%')
 		full = full.split('%')
+		course_codes = []
+
 		for id in course_list:
 			if id != '':
 				course = get_object_or_404(Course, pk=id)
 				courses.append(course)
+				course_codes.append(course.code)
+
+		enrolled = Meeting.objects.filter(students=student)
+		waitlist = Meeting.objects.filter(waitlist=student)
+		for e in enrolled:
+			if e.course in courses:
+				doubles.append(e.course)
+		for w in waitlist:
+			if w.course in courses:
+				doubles.append(e.course)
 
 		for id in vacant:
 			if id != '':
@@ -167,7 +180,8 @@ def register_results(request, pk, course_list, vacant, full):
 			'student' : student,
 			'courses': course_list,
 			'vacant': vacant_meetings,
-			'full': full_meetings
+			'full': full_meetings,
+			'doubles': doubles
 		}
 		return render(request, 'one/register_results.html/', context=context)
 
