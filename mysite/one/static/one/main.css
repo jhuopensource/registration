@@ -19,6 +19,10 @@ body {
 	color: #5cb85c;
 }
 
+.navbar-image{
+	height: 40px;
+}
+
 .navbar-dark .navbar-brand:hover {
 	color: #2a4cb8;
 }
