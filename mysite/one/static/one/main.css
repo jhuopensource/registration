@@ -50,6 +50,42 @@ ul {
 	color: red;
 }
 
+.content-section ul{
+	list-style: none;
+}
+
+.green-button {
+	background-color: #1abc9c;
+	border: 0;
+	border-bottom: 2px solid #12ab8d;
+	box-shadow: inset 0 -2px #12ab8d;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 18px;
+	padding: 8px 20px;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.red-button {
+	background-color: rgb(253, 116, 115);
+	border: 0;
+	border-bottom: 2px solid rgb(217, 91, 90);
+	box-shadow: inset 0 -2px rgb(217, 91, 90);
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 18px;
+	padding: 8px 20px;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.meetings_form ul{
+	list-style: none;
+}
+
 .bg-white {
 	background-color: #ffffff;
 	box-shadow: 0 0 12px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.15);
@@ -161,13 +197,14 @@ a.article-title:hover {
 	color: rgb(34,34,34);
 
 	margin: 10px;
-	height: 80px;
+	height: 85%;
 	width: 90%;
 }
 
 .course-card p{
 	font-size: 0.8em;
 	margin-left: 5px;
+	margin-top: 5px;
 	display: inline-block;
 	width: 80%;
 }
