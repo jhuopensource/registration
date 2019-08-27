@@ -15,7 +15,7 @@
 		</div>
 		{% else %}
 		<div>
-			<button type="submit" disabled>You are not logged in!</button>
+			<a class="nav-item nav-link" href="{% url 'one:sign_in' %}">Create an Account</a>
 		</div>
 		{% endif %}
 	</form>

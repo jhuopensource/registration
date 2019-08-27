@@ -27,6 +27,10 @@ body {
 	color: #2a4cb8;
 }
 
+.navbar-toggler-icon {
+	background: grey;
+}
+
 span.helptext {
 	color: #6C757D;
 	font-size: small;
