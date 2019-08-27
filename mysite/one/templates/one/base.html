@@ -12,9 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'one/main.css' %}">
 
 	{% if title %}
-		<title>{{ title }}</title>
+	<title>{{ title }}</title>
 	{% else %}
-		<title>PILOT Registration</title>
+	<title>PILOT Registration</title>
 	{% endif %}
 </head>
 <body>
@@ -27,9 +27,11 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarToggle">
+				{% if user.is_authenticated %}
 				<div class="navbar-nav mr-auto">
-					<a class="nav-item nav-link" href="{% url 'one:home' %}">Home</a>
+					<a class="nav-item nav-link" href="{% url 'one:results' student.id %}">Register</a>
 				</div>
+				{% endif %}
 				<!-- Navbar Right Side -->
 				<div class="navbar-nav">
 					{% if user.is_authenticated %}
