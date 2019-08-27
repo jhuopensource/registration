@@ -7,14 +7,16 @@
 		<h5>Enrolled sections:</h5>
 		</div><br>
 		{% if enrolled|length > 0 %}
-			{% for meeting in enrolled %}
-					<h6 class="stat-course"><b>{{ meeting.course }}</b></h6>
-						<ul>
-							<li><b>Day: </b>{{ meeting.day }}</li>
-							<li><b>Time: </b>{{ meeting.start_time}} - {{meeting.end_time}}</li>
-							<li><b>Location: </b> TBD </li>
-						</ul>
-			{% endfor %}
+			<div class="card-container">
+				{% for meeting in enrolled %}
+					<div class="course-card {%  cycle 'semesterly-red' 'semesterly-blue' 'semesterly-green' 'semesterly-yellow' %}">
+						<div class="slot-bar
+                                    {%  cycle 'semesterly-dark-red' 'semesterly-dark-blue' 'semesterly-dark-green' 'semesterly-dark-yellow' %}"></div>
+						<p class="stat-course">{{ meeting.course }}</p>
+						<p>{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }} TBD</p>
+					</div>
+				{% endfor %}
+			</div>
 		{% else %}
 			<h6 class="stat-course"><b>You are not enrolled in any sections.</b></h6>
 			<form method="post">
