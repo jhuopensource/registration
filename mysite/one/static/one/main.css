@@ -50,6 +50,10 @@ ul {
 	color: red;
 }
 
+.content-section ul{
+	list-style: none;
+}
+
 .meetings_form ul{
 	list-style: none;
 }
