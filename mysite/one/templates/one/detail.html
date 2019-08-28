@@ -7,118 +7,223 @@
 <form action="get_courses/" method="post">
 	{% csrf_token %}
 	<tr><th><label><b>Supported Courses:</b></i> </label></th><td><ul id="id_classes">
-		<li><label for="id_classes_0"><input type="checkbox" name="classes" value="1" id="id_classes_0">
-			Calculus I (Biology and Social Sciences) <i class="text-muted"> with Professor C. Sogge</i> </label>
+		{% if 'Calculus I (Biology and Social Sciences) with Professor C. Sogge' in registered %}
+			<li class="text-muted"><label for="id_classes_0"><input type="checkbox" name="classes" value="1" id="id_classes_0" disabled>
+				Calculus I (Biology and Social Sciences) <i> with Professor C. Sogge</i> </label></li>
+		{% else %}
+			<li><label for="id_classes_0"><input type="checkbox" name="classes" value="1" id="id_classes_0">
+				Calculus I (Biology and Social Sciences) <i class="text-muted"> with Professor C. Sogge</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Calculus II (For Biological and Social Science) with Professor C. Mese in registered %}
+		<li class="text-muted"><label for="id_classes_1"><input type="checkbox" name="classes" value="2" id="id_classes_1" disabled>
+			Calculus II (For Biological and Social Science) <i> with Professor C. Mese</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_1"><input type="checkbox" name="classes" value="2" id="id_classes_1">
-			Calculus II (For Biological and Social Science) <i class="text-muted"> with Professor C. Mese</i> </label>
+			Calculus II (For Biological and Social Science) <i class="text-muted"> with Professor C. Mese</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Calculus I (For Physical Sciences and Engineering) with Professor J. Spruck' in registered %}
+		<li class="text-muted"><label for="id_classes_2"><input type="checkbox" name="classes" value="3" id="id_classes_2" disabled>
+			Calculus I (For Physical Sciences and Engineering) <i> with Professor J. Spruck</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_2"><input type="checkbox" name="classes" value="3" id="id_classes_2">
-			Calculus I (For Physical Sciences and Engineering) <i class="text-muted"> with Professor J. Spruck</i> </label>
+			Calculus I (For Physical Sciences and Engineering) <i class="text-muted"> with Professor J. Spruck</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Calculus II (For Physical Sciences and Engineering) with Professor V. Zakharevich' in registered %}
+		<li class="text-muted"><label for="id_classes_3"><input type="checkbox" name="classes" value="4" id="id_classes_3" disabled>
+			Calculus II (For Physical Sciences and Engineering) <i> with Professor V. Zakharevich</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_3"><input type="checkbox" name="classes" value="4" id="id_classes_3">
-			Calculus II (For Physical Sciences and Engineering) <i class="text-muted"> with Professor V. Zakharevich</i> </label>
+			Calculus II (For Physical Sciences and Engineering) <i class="text-muted"> with Professor V. Zakharevich</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Calculus III with Professor R. Brown' in registered %}
+		<li class="text-muted"><label for="id_classes_4"><input type="checkbox" name="classes" value="5" id="id_classes_4" disabled>
+			Calculus III <i> with Professor R. Brown</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_4"><input type="checkbox" name="classes" value="5" id="id_classes_4">
-			Calculus III <i class="text-muted"> with Professor R. Brown</i> </label>
+			Calculus III <i class="text-muted"> with Professor R. Brown</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Linear Algebra with Professor J. Han' in registered %}
+		<li class="text-muted"><label for="id_classes_5"><input type="checkbox" name="classes" value="6" id="id_classes_5" disabled>
+			Linear Algebra <i> with Professor J. Han</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_5"><input type="checkbox" name="classes" value="6" id="id_classes_5">
-			Linear Algebra <i class="text-muted"> with Professor J. Han</i> </label>
+			Linear Algebra <i class="text-muted"> with Professor J. Han</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Differential Equations with Professor TBA' in registered %}
+		<li class="text-muted"><label for="id_classes_6"><input type="checkbox" name="classes" value="7" id="id_classes_6" disabled>
+			Differential Equations <i> with Professor TBA</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_6"><input type="checkbox" name="classes" value="7" id="id_classes_6">
-			Differential Equations and Applications <i class="text-muted"> with Professor TBA</i> </label>
+			Differential Equations <i class="text-muted"> with Professor TBA</i> </label></li>
+		{% endif %}
 
-		</li>
-		<li><label for="id_classes_7"><input type="checkbox" name="classes" value="8" id="id_classes_7">
-			Introductory Chemistry I <i class="text-muted"> with Professor J. Tolman</i> </label>
-
-		</li>
+		{% if 'Introductory Chemistry I with Professor S. Thyagarajan' in registered %}
+		<li class="text-muted"><label for="id_classes_8"><input type="checkbox" name="classes" value="9" id="id_classes_8" disabled>
+			Introductory Chemistry I <i> with Professor S. Thyagarajan</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_8"><input type="checkbox" name="classes" value="9" id="id_classes_8">
-			Introductory Chemistry I <i class="text-muted"> with Professor S. Thyagarajan</i> </label>
+			Introductory Chemistry I <i class="text-muted"> with Professor S. Thyagarajan</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Organic Chemistry I with Professor C. Falzone' in registered %}
+		<li class="text-muted"><label for="id_classes_9"><input type="checkbox" name="classes" value="10" id="id_classes_9" disabled>
+			Organic Chemistry I <i> with Professor C. Falzone</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_9"><input type="checkbox" name="classes" value="10" id="id_classes_9">
-			Organic Chemistry I <i class="text-muted"> with Professor C. Falzone</i> </label>
+			Organic Chemistry I <i class="text-muted"> with Professor C. Falzone</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Organic Chemistry I with Professor C. Townsend' in registered %}
+		<li class="text-muted"><label for="id_classes_10"><input type="checkbox" name="classes" value="11" id="id_classes_10" disabled>
+			Organic Chemistry I <i> with Professor C. Townsend</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_10"><input type="checkbox" name="classes" value="11" id="id_classes_10">
-			Organic Chemistry I <i class="text-muted"> with Professor C. Townsend</i> </label>
+			Organic Chemistry I <i class="text-muted"> with Professor C. Townsend</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Organic Chemistry I with Professor M. Greenberg' in registered %}
+		<li class="text-muted"><label for="id_classes_11"><input type="checkbox" name="classes" value="12" id="id_classes_11" disabled>
+			Organic Chemistry I <i> with Professor M. Greenberg</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_11"><input type="checkbox" name="classes" value="12" id="id_classes_11">
-			Organic Chemistry I <i class="text-muted"> with Professor M. Greenberg</i> </label>
+			Organic Chemistry I <i class="text-muted"> with Professor M. Greenberg</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Physics I (For Physical Sciences and Engineering) with Professor M. Swartz' in registered %}
+		<li class="text-muted"><label for="id_classes_12"><input type="checkbox" name="classes" value="13" id="id_classes_12" disabled>
+			Physics I (For Physical Sciences and Engineering) <i> with Professor M. Swartz</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_12"><input type="checkbox" name="classes" value="13" id="id_classes_12">
-			Physics I (For Physical Sciences and Engineering) <i class="text-muted"> with Professor M. Swartz</i> </label>
+			Physics I (For Physical Sciences and Engineering) <i class="text-muted"> with Professor M. Swartz</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Physics I (For Physical Sciences and Engineering) Active Learning (AL) with Professor R. Wyse' in registered %}
+		<li class="text-muted"><label for="id_classes_13"><input type="checkbox" name="classes" value="14" id="id_classes_13" disabled>
+			Physics I (For Physical Sciences and Engineering) Active Learning (AL) <i> with Professor R. Wyse</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_13"><input type="checkbox" name="classes" value="14" id="id_classes_13">
-			Physics I (For Physical Sciences and Engineering) Active Learning (AL) <i class="text-muted"> with Professor R. Wyse</i> </label>
+			Physics I (For Physical Sciences and Engineering) Active Learning (AL) <i class="text-muted"> with Professor R. Wyse</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Physics I (For Physical Sciences and Engineering) Active Learning (AL) with Professor R. Leheny' in registered %}
+		<li class="text-muted"><label for="id_classes_14"><input type="checkbox" name="classes" value="15" id="id_classes_14" disabled>
+			Physics I (For Physical Sciences and Engineering) Active Learning (AL) <i> with Professor R. Leheny</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_14"><input type="checkbox" name="classes" value="15" id="id_classes_14">
-			Physics I (For Physical Sciences and Engineering) Active Learning (AL) <i class="text-muted"> with Professor R. Leheny</i> </label>
+			Physics I (For Physical Sciences and Engineering) Active Learning (AL) <i class="text-muted"> with Professor R. Leheny</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Physics II (For Physical Sciences and Engineering) with Professor P. Maksimovic' in registered %}
+		<li class="text-muted"><label for="id_classes_15"><input type="checkbox" name="classes" value="16" id="id_classes_15" disabled>
+			Physics II (For Physical Sciences and Engineering) <i> with Professor P. Maksimovic</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_15"><input type="checkbox" name="classes" value="16" id="id_classes_15">
-			Physics II (For Physical Sciences and Engineering) <i class="text-muted"> with Professor P. Maksimovic</i> </label>
+			Physics II (For Physical Sciences and Engineering) <i class="text-muted"> with Professor P. Maksimovic</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Physics I (Biology and Social Sciences) with Professor T. Marriage' in registered %}
+		<li class="text-muted"><label for="id_classes_16"><input type="checkbox" name="classes" value="17" id="id_classes_16" disabled>
+			Physics I (Biology and Social Sciences) <i> with Professor T. Marriage</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_16"><input type="checkbox" name="classes" value="17" id="id_classes_16">
-			Physics I (Biology and Social Sciences) <i class="text-muted"> with Professor T. Marriage</i> </label>
+			Physics I (Biology and Social Sciences) <i class="text-muted"> with Professor T. Marriage</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Gateway Computing: JAVA with Professor S. More' in registered %}
+		<li class="text-muted"><label for="id_classes_17"><input type="checkbox" name="classes" value="18" id="id_classes_17" disabled>
+			Gateway Computing: JAVA <i> with Professor S. More</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_17"><input type="checkbox" name="classes" value="18" id="id_classes_17">
-			Gateway Computing: JAVA <i class="text-muted"> with Professor S. More</i> </label>
+			Gateway Computing: JAVA <i class="text-muted"> with Professor S. More</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Gateway Computing: JAVA with Professor I. Sekyonda' in registered %}
+		<li class="text-muted"><label for="id_classes_18"><input type="checkbox" name="classes" value="19" id="id_classes_18" disabled>
+			Gateway Computing: JAVA <i> with Professor I. Sekyonda</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_18"><input type="checkbox" name="classes" value="19" id="id_classes_18">
-			Gateway Computing: JAVA <i class="text-muted"> with Professor I. Sekyonda</i> </label>
+			Gateway Computing: JAVA <i class="text-muted"> with Professor I. Sekyonda</i> </label></li>
+		{% endif %}
 
-		</li>
+
+		{% if 'Gateway Computing: JAVA with Professor TBA' in registered %}
+		<li class="text-muted"><label for="id_classes_19"><input type="checkbox" name="classes" value="20" id="id_classes_19" disabled>
+			Gateway Computing: JAVA <i> with Professor TBA</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_19"><input type="checkbox" name="classes" value="20" id="id_classes_19">
-			Gateway Computing: JAVA <i class="text-muted"> with Professor TBA</i> </label>
+			Gateway Computing: JAVA <i class="text-muted"> with Professor TBA</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Discrete Math with Professor B. Castello' in registered %}
+		<li class="text-muted"><label for="id_classes_20"><input type="checkbox" name="classes" value="21" id="id_classes_20" disabled>
+			Discrete Math <i> with Professor B. Castello</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_20"><input type="checkbox" name="classes" value="21" id="id_classes_20">
-			Discrete Math <i class="text-muted"> with Professor B. Castello</i> </label>
+			Discrete Math <i class="text-muted"> with Professor B. Castello</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Statistical Analysis with Professor A. Athreya' in registered %}
+		<li class="text-muted"><label for="id_classes_21"><input type="checkbox" name="classes" value="22" id="id_classes_21" disabled>
+			Statistical Analysis <i> with Professor A. Athreya</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_21"><input type="checkbox" name="classes" value="22" id="id_classes_21">
-			Statistical Analysis I <i class="text-muted"> with Professor A. Athreya</i> </label>
+			Statistical Analysis <i class="text-muted"> with Professor A. Athreya</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Spanish Elements II with Professor M. Tracy' in registered %}
+		<li class="text-muted"><label for="id_classes_22"><input type="checkbox" name="classes" value="23" id="id_classes_22" disabled>
+			Spanish Elements II <i> with Professor M. Tracy</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_22"><input type="checkbox" name="classes" value="23" id="id_classes_22">
-			Spanish Elements II <i class="text-muted"> with Professor M. Tracy</i> </label>
+			Spanish Elements II <i class="text-muted"> with Professor M. Tracy</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Fundamentals of Epidemiology with Professor H. Mckay' in registered %}
+		<li class="text-muted"><label for="id_classes_23"><input type="checkbox" name="classes" value="24" id="id_classes_23" disabled>
+			Fundamentals of Epidemiology <i> with Professor H. Mckay</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_23"><input type="checkbox" name="classes" value="24" id="id_classes_23">
-			Fundamentals of Epidemiology <i class="text-muted"> with Professor H. Mckay</i> </label>
+			Fundamentals of Epidemiology <i class="text-muted"> with Professor H. Mckay</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Fundamentals of Epidemiology with Professor M. Schneider' in registered %}
+		<li class="text-muted"><label for="id_classes_24"><input type="checkbox" name="classes" value="25" id="id_classes_24" disabled>
+			Fundamentals of Epidemiology <i> with Professor M. Schneider</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_24"><input type="checkbox" name="classes" value="25" id="id_classes_24">
-			Fundamentals of Epidemiology <i class="text-muted"> with Professor M. Schneider</i> </label>
+			Fundamentals of Epidemiology <i class="text-muted"> with Professor M. Schneider</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Public Health Biostatistics with Professor M. Taub' in registered %}
+		<li class="text-muted"><label for="id_classes_25"><input type="checkbox" name="classes" value="26" id="id_classes_25" disabled>
+			Public Health Biostatistics <i> with Professor M. Taub</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_25"><input type="checkbox" name="classes" value="26" id="id_classes_25">
-			Public Health Biostatistics <i class="text-muted"> with Professor M.Taub</i> </label>
+			Public Health Biostatistics <i class="text-muted"> with Professor M. Taub</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Public Health Biostatistics with Professor L. Jager' in registered %}
+		<li class="text-muted"><label for="id_classes_26"><input type="checkbox" name="classes" value="27" id="id_classes_26" disabled>
+			Public Health Biostatistics <i> with Professor L. Jager</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_26"><input type="checkbox" name="classes" value="27" id="id_classes_26">
-			Public Health Biostatistics <i class="text-muted"> with Professor L. Jager</i> </label>
+			Public Health Biostatistics <i class="text-muted"> with Professor L. Jager</i> </label></li>
+		{% endif %}
 
-		</li>
+		{% if 'Elements of Macroeconomics with Professor R. Barbera' in registered %}
+		<li class="text-muted"><label for="id_classes_27"><input type="checkbox" name="classes" value="28" id="id_classes_27" disabled>
+			Elements of Macroeconomic <i> with Professor R. Barbera</i> </label></li>
+		{% else %}
 		<li><label for="id_classes_27"><input type="checkbox" name="classes" value="28" id="id_classes_27">
-			Elements of Macroeconomics <i class="text-muted"> with Professor R. Barbera</i> </label>
+			Elements of Macroeconomic <i class="text-muted"> with Professor R. Barbera</i> </label></li>
+		{% endif %}
 
-		</li>
 	</ul></td></tr>
 	<input class="green-button" type="submit" value="Submit">
 </form>

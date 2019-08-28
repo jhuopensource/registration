@@ -73,10 +73,19 @@ def get_results(request, pk):
 def details(request, pk):
 	student = StudentUser.objects.filter(id=pk).first()
 	courses = Course.objects.all()
+	enrolled = Meeting.objects.filter(students=student)
+	waitlist = Meeting.objects.filter(waitlist=student)
+
+	registered = list(enrolled) + list(waitlist)
+	registered_courses = []
+	for r in registered:
+		registered_courses.append(str(r.course))
+	print(registered_courses)
 	context = {
 		'title': 'Courses | PILOT Registration',
 		'student': student,
-		'course_list': courses
+		'course_list': courses,
+		'registered': registered_courses,
 	}
 	return render(request, 'one/detail.html/', context=context)
 
@@ -130,18 +139,10 @@ def get_details(request, pk, course_list):
 				meetings = list(meetings)
 				object_meetings_dict[course] = meetings
 
-		enrolled = Meeting.objects.filter(students=student)
-		waitlist = Meeting.objects.filter(waitlist=student)
-		registered = []
-		for e in enrolled:
-			registered.append(e.course)
-		for w in waitlist:
-			registered.append(w.course)
 		context= {
 			'title': 'Meeting Times | PILOT Registration',
 			'student': student,
 			'meetings': object_meetings_dict,
-			'registered': registered
 		}
 		return render(request, 'one/meetings.html/', context=context)
 
