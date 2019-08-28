@@ -9,8 +9,10 @@ from social_core.exceptions import AuthTokenError
 class JHUOAuth2(BaseOAuth2):
     """JHU OAuth authentication backend"""
     name = 'jhu'
-    AUTHORIZATION_URL = 'https://slife.jh.edu/VEGAS/oauth/authorize'
-    ACCESS_TOKEN_URL = 'https://slife.jh.edu/VEGAS/api/oauth2/token'
+    AUTHORIZATION_URL = 'https://my.jh.edu/VEGAS/oauth/authorize'
+    ACCESS_TOKEN_URL = 'https://my.jh.edu/VEGAS/api/oauth2/token'
+    ISSUER = 'https://my.jh.edu'
+
     ACCESS_TOKEN_METHOD = 'POST'
     SCOPE_SEPARATOR = ','
     EXTRA_DATA = [
@@ -19,10 +21,15 @@ class JHUOAuth2(BaseOAuth2):
     ]
     ID_KEY = 'user_id'
     ID_TOKEN_MAX_AGE = 600
-    EXTRA_DATA = [ ('refresh_token', 'refresh_token', True) ]
+
+    def authorization_url(self):
+        return self.setting('AUTHORIZATION_URL', self.AUTHORIZATION_URL)
+
+    def access_token_url(self):
+        return self.setting('ACCESS_TOKEN_URL', self.ACCESS_TOKEN_URL)
 
     def id_token_issuer(self):
-        return 'https://slife.jh.edu'
+        return self.setting('ISSUER', self.ISSUER) 
 
     def validate_claims(self, id_token):
         utc_timestamp = timegm(datetime.datetime.utcnow().utctimetuple())
@@ -48,8 +55,6 @@ class JHUOAuth2(BaseOAuth2):
         if not key:
             raise AuthTokenError(self, 'Signature verification failed')
 
-        #rsakey = jwk.construct(key)
-
         try:
             claims = jwt.decode(
                 id_token,
@@ -70,6 +75,7 @@ class JHUOAuth2(BaseOAuth2):
 
         return claims
 
+    # Used by Django
     def get_user_details(self, response):
         """Return user details from GitHub account"""
         jwt = response.get('access_token')
@@ -77,9 +83,9 @@ class JHUOAuth2(BaseOAuth2):
 
         #raise Exception('got {}'.format(user))
 
-        return {'username': user.get('sub'),
+        return {'username': user.get('sub') ,
                 'email': user.get('email') or '',
-                'first_name': user.get('sub')} ## Todo fname
+                'first_name': user.get('sub')} 
 
     def user_data(self, access_token, *args, **kwargs):
          user = self.validate_and_return_id_token(access_token)
