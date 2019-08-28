@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -84,6 +86,16 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
+SOCIAL_AUTH_JHU_KEY= 'ad2d0f8d-0922-4463-8163-e3a78c7badc0'
+SOCIAL_AUTH_JHU_SECRET = 'askali'
+
+AUTHENTICATION_BACKENDS = (
+    'mysite.jhu.JHUOAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+)
 
 
 # Password validation

@@ -1,20 +1,19 @@
 version: '3'
 
-services:
-  db:
-    image: postgres
-    ports:
-      - "5432:5432"
-  web:
-    image: registration
-    environment:
-      - NODE_ENV=development
-      - PYTHONUNBUFFERED=0
-    build: .
-    # Just migrations for testing, you will need to commend out db code in forms.py
-    #command: bash -c "python mysite/manage.py migrate;"
-    command: bash -c "python mysite/manage.py migrate; python mysite/manage.py runserver 0.0.0.0:8000"
-
+ services:
+   db:
+     image: postgres
+     ports:
+       - "5432:5432"
+   web:
+     image: registration
+     environment:
+       - NODE_ENV=development
+       - PYTHONUNBUFFERED=0
+     build: .
+     # Just migrations for testing, you will need to commend out db code in forms.py
+     #command: sh -c "python mysite/manage.py migrate;"
+     command: sh -c "python mysite/manage.py migrate; python mysite/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
