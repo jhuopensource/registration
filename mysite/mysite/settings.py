@@ -92,6 +92,11 @@ SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_JHU_KEY= 'ad2d0f8d-0922-4463-8163-e3a78c7badc0'
 SOCIAL_AUTH_JHU_SECRET = 'askali'
 
+# Use staging environment, remove these to default to production
+SOCIAL_AUTH_JHU_AUTHORIZATION_URL = 'https://slife.jh.edu/VEGAS/oauth/authorize'
+SOCIAL_AUTH_JHU_ACCESS_TOKEN_URL = 'https://slife.jh.edu/VEGAS/api/oauth2/token'
+SOCIAL_AUTH_JHU_ISSUER = 'https://slife.jh.edu'
+
 AUTHENTICATION_BACKENDS = (
     'mysite.jhu.JHUOAuth2',
     'django.contrib.auth.backends.ModelBackend'
