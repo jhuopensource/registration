@@ -12,8 +12,8 @@
        - PYTHONUNBUFFERED=0
      build: .
      # Just migrations for testing, you will need to commend out db code in forms.py
-     #command: bash -c "python mysite/manage.py migrate;"
-     command: bash -c "python mysite/manage.py migrate; python mysite/manage.py runserver 0.0.0.0:8000"
+     #command: sh -c "python mysite/manage.py migrate;"
+     command: sh -c "python mysite/manage.py migrate; python mysite/manage.py runserver 0.0.0.0:8000"
 
      volumes:
        - .:/code

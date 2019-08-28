@@ -19,6 +19,7 @@ from django.urls import include, path
 from users import views as user_views
 
 urlpatterns = [
+    path('', include('social_django.urls', namespace='social')),
     path('admin/', admin.site.urls),
     path('signin/', user_views.create_user, name='sign_in'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),

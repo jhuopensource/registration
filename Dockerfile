@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3-alpine
 # FROM jhuopensource/semesterly-base:latest
 
 RUN mkdir /code
@@ -24,11 +24,6 @@ ADD . /code/
 # Add parser script
 # COPY ./build/run_parser.sh /code/run_parser.sh
 
-RUN pip install django
+RUN apk add gcc musl-dev libffi-dev xmlsec postgresql-libs postgresql-dev 
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-# This is needed on newer ubuntu
-RUN pip install psycopg2-binary
-
-# RUN npm install
-# RUN npm run build
-# RUN python mysite/manage.py runserver
