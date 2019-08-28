@@ -1,0 +1,254 @@
+[
+    {
+        "model": "one.course",
+        "pk": 1,
+        "fields": {
+            "name": "Calculus I (Biology and Social Sciences)",
+            "prof": "C. Sogge",
+            "code": "AS.110.106"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 2,
+        "fields": {
+            "name": "Calculus II (For Biological and Social Science)",
+            "prof": "C. Mese",
+            "code": "AS.110.107"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 3,
+        "fields": {
+            "name": "Calculus I (For Physical Sciences and Engineering)",
+            "prof": "J. Spruck",
+            "code": "AS.110.108"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 4,
+        "fields": {
+            "name": "Calculus II (For Physical Sciences and Engineering)",
+            "prof": "V. Zakharevich",
+            "code": "AS.110.109"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 5,
+        "fields": {
+            "name": "Calculus III",
+            "prof": "R. Brown",
+            "code": "AS.110.202"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 6,
+        "fields": {
+            "name": "Linear Algebra",
+            "prof": "J. Han",
+            "code": "AS.110.201"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 7,
+        "fields": {
+            "name": "Differential Equations and Applications",
+            "prof": "TBA",
+            "code": "AS.110.302"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 8,
+        "fields": {
+            "name": "Introductory Chemistry I",
+            "prof": "J. Tolman",
+            "code": "AS.030.101 (01)"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 9,
+        "fields": {
+            "name": "Introductory Chemistry I",
+            "prof": "S. Thyagarajan",
+            "code": "AS.030.101 (02)"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 10,
+        "fields": {
+            "name": "Organic Chemistry I",
+            "prof": "C. Falzone",
+            "code": "AS.030.205"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 11,
+        "fields": {
+            "name": "Organic Chemistry I",
+            "prof": "C. Townsend",
+            "code": "AS.030.205"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 12,
+        "fields": {
+            "name": "Organic Chemistry I",
+            "prof": "M. Greenberg",
+            "code": "AS.030.205"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 13,
+        "fields": {
+            "name": "Physics I (For Physical Sciences and Engineering)",
+            "prof": "M. Swartz",
+            "code": "AS.171.101"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 14,
+        "fields": {
+            "name": "Physics I (For Physical Sciences and Engineering) Active Learning (AL)",
+            "prof": "R. Wyse",
+            "code": "AS.171.107"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 15,
+        "fields": {
+            "name": "Physics I (For Physical Sciences and Engineering) Active Learning (AL)",
+            "prof": "R. Leheny",
+            "code": "AS.171.107"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 16,
+        "fields": {
+            "name": "Physics II (For Physical Sciences and Engineering)",
+            "prof": "P. Maksimovic",
+            "code": "AS.171.102"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 17,
+        "fields": {
+            "name": "Physics I (Biology and Social Sciences)",
+            "prof": "T. Marriage",
+            "code": "AS.171.103"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 18,
+        "fields": {
+            "name": "Gateway Computing: JAVA",
+            "prof": "S. More",
+            "code": "EN.500.112"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 19,
+        "fields": {
+            "name": "Gateway Computing: JAVA",
+            "prof": "I. Sekyonda",
+            "code": "EN.500.112"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 20,
+        "fields": {
+            "name": "Gateway Computing: JAVA",
+            "prof": "TBA",
+            "code": "EN.500.112"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 21,
+        "fields": {
+            "name": "Discrete Math",
+            "prof": "B. Castello",
+            "code": "EN.553.171"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 22,
+        "fields": {
+            "name": "Statistical Analysis I",
+            "prof": "A. Athreya",
+            "code": "EN.553.111"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 23,
+        "fields": {
+            "name": "Spanish Elements II",
+            "prof": "M. Tracy",
+            "code": "AS.210.112"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 24,
+        "fields": {
+            "name": "Fundamentals of Epidemiology",
+            "prof": "H. Mckay",
+            "code": "AS.280.350"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 25,
+        "fields": {
+            "name": "Fundamentals of Epidemiology",
+            "prof": "M. Schneider",
+            "code": "AS.280.350"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 26,
+        "fields": {
+            "name": "Public Health Biostatistics",
+            "prof": "M.Taub",
+            "code": "AS.280.345"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 27,
+        "fields": {
+            "name": "Public Health Biostatistics",
+            "prof": "L. Jager",
+            "code": "AS.280.345"
+        }
+    },
+    {
+        "model": "one.course",
+        "pk": 28,
+        "fields": {
+            "name": "Elements of Macroeconomics",
+            "prof": "R. Barbera",
+            "code": "AS.180.101"
+        }
+    }
+]
