@@ -1,0 +1,6 @@
+README
+Make sure you're using python3 and pip3
+
+To start:
+$ docker-compose build
+$ docker-compose up
