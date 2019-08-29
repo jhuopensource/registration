@@ -54,6 +54,14 @@ ul {
 	color: red;
 }
 
+.text-disabled {
+	color: #8b96a066;
+}
+
+.course-sub {
+	margin-left: 25px;
+}
+
 .content-section ul{
 	list-style: none;
 }
