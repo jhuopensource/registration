@@ -3,9 +3,10 @@
 from django.contrib import admin
 from django.db import models
 from django import forms
-from .models import StudentUser, Course, Meeting
+from .models import StudentUser, Course, Meeting, ActivateSite
 admin.site.register(StudentUser)
 admin.site.register(Course)
+admin.site.register(ActivateSite)
 
 class StudentsInline(admin.StackedInline):
 	model = Meeting.students.through

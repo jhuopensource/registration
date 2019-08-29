@@ -59,3 +59,6 @@ class Meeting(models.Model):
 
 	def __str__(self):
 		return "Day: %s, Time: %s - %s" % (self.day, self.start_time, self.end_time)
+
+class ActivateSite(models.Model):
+	activate = models.BooleanField(default=False)
