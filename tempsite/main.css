@@ -108,3 +108,24 @@ a.article-title:hover {
 .account-heading {
 	font-size: 2.5rem;
 }
+
+.temp {
+	display: block;
+	margin-top: 200px;
+}
+
+.temp-image {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.holding-text {
+	display:block;
+	font-size: large;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
