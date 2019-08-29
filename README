@@ -4,3 +4,6 @@ Make sure you're using python3 and pip3
 To start:
 $ docker-compose build
 $ docker-compose up
+
+To download data:
+python mysite/manage.py loaddata datadump.json
