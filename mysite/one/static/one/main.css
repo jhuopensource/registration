@@ -4,6 +4,25 @@
 	url('../static/fonts/panquin.woff2') format("truetype");
 }
 
+.temp {
+	display: block;
+	margin-top: 100px;
+}
+
+.temp-image {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.holding-text {
+	display:block;
+	font-size: large;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 p {
 	font-family: "panquin", sans-serif;

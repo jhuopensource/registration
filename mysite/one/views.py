@@ -5,21 +5,23 @@ from django.views import generic
 from django.utils import timezone
 from django.shortcuts import render
 from .forms import StudentForm, CourseForm
-from .models import Course, Meeting, StudentUser
+from .models import Course, Meeting, StudentUser, ActivateSite
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
-#
-# def live_decorator(the_func):
-# 	"""
-#     Check if the site is activated
-#     """
-# 	def _decorator(func):
-# 		print("HELLO")
-# 		return redirect('one:login')
-# 	return _decorator
-#
-# @live_decorator
+
+def live_decorator(the_func):
+	"""
+    Check if the site is activated
+    """
+	def _decorator(request):
+		if ActivateSite.objects.get().activate:
+			return the_func(request)
+		else:
+			return render(request, 'one/down.html/')
+	return _decorator
+
+@live_decorator
 def welcome(request):
 	if request.method == 'POST':
 		return redirect('one:data')
@@ -29,7 +31,7 @@ def welcome(request):
 		else:
 			return render(request, 'one/welcome.html/')
 
-
+@live_decorator
 @login_required
 def get_data(request):
 	# if this is a POST request we need to process the form data
@@ -62,6 +64,7 @@ def get_data(request):
 		}
 		return render(request, 'one/student_info.html/', context=context)
 
+@live_decorator
 @login_required
 def get_results(request, pk):
 	student = StudentUser.objects.filter(id=pk).first()
@@ -76,6 +79,7 @@ def get_results(request, pk):
 		}
 		return render(request, 'one/results.html/', context=context)
 
+@live_decorator
 @login_required
 def details(request, pk):
 	student = StudentUser.objects.filter(id=pk).first()
@@ -96,6 +100,7 @@ def details(request, pk):
 	}
 	return render(request, 'one/detail.html/', context=context)
 
+@live_decorator
 @login_required
 def get_courses(request, pk):
 	student = StudentUser.objects.filter(id=pk).first()
@@ -112,6 +117,7 @@ def get_courses(request, pk):
 		# redirect to a new URL:
 		return redirect('one:meetings', pk=student.id, course_list=course_string)
 
+@live_decorator
 @login_required
 def get_details(request, pk, course_list):
 	student = get_object_or_404(StudentUser, pk=pk)
@@ -155,6 +161,7 @@ def get_details(request, pk, course_list):
 		}
 		return render(request, 'one/meetings.html/', context=context)
 
+@live_decorator
 @login_required
 def register_results(request, pk, course_list, vacant, full):
 	doubles = []
@@ -193,6 +200,7 @@ def register_results(request, pk, course_list, vacant, full):
 		}
 		return render(request, 'one/register_results.html/', context=context)
 
+@live_decorator
 @login_required
 def status(request):
 	if request.method == 'POST':
@@ -214,6 +222,7 @@ def status(request):
 		}
 		return render(request, 'one/status.html', context=context)
 
+@live_decorator
 @login_required
 def drop(request):
 	if request.method == 'POST':
