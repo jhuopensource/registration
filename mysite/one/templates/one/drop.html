@@ -27,25 +27,6 @@
         {% csrf_token %}
     </form>
     {% endif %}<br>
-
-    <div class="article-metadata">
-        <h5>Waitlisted sections:</h5>
-    </div><br>
-    {% if waitlist|length > 0 %}
-    <div class="card-container">
-        {% for meeting in waitlist %}
-        <div class="course-card {%  cycle 'semesterly-red' 'semesterly-blue' 'semesterly-green' 'semesterly-yellow' %}">
-            <div class="slot-bar
-                                    {%  cycle 'semesterly-dark-red' 'semesterly-dark-blue' 'semesterly-dark-green' 'semesterly-dark-yellow' %}"></div>
-            <p class="stat-course">{{ meeting.course }}</p>
-            <p>{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }}</p>
-        </div>
-        {% endfor %}
-    </div>
-    {% else %}
-    <h6 class="stat-course"><b>You are not waitlisted for any sections.</b></h6>
-    {% endif %}
-    <br>
 </div>
 <script>
     function validateAndSend() {

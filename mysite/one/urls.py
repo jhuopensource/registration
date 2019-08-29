@@ -15,6 +15,6 @@ urlpatterns = [
 	path('<int:pk>/results/', views.get_results, name='results'),
 	path('<int:pk>/details/', views.details, name='detail'),
 	path('<int:pk>/details/get_courses/', views.get_courses, name='courses'),
-	path('<int:pk>/meetings/<str:course_list>/get_details/', views.get_details , name='meetings'),
+	path('<int:pk>/meetings/<str:course_list>/get_details/', views.get_details, name='meetings'),
 	path('<int:pk>/meetings/<str:course_list>/<str:vacant>/<str:full>/register/', views.register_results , name='register_results'),
 ]

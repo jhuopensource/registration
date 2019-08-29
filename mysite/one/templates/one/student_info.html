@@ -1,15 +1,21 @@
 {% extends "one/base.html" %}
 {% block content %}
 <div class="content-section">
-	<h3>Hey, {{ user }}!</h3>
+	<h3>Tell us about yourself</h3>
 	<p class="text-muted">Please enter your JHU information below. </p>
-	<p class="text-muted">Tip: Your Hopid can be found on the top right of SIS.</p>
 	<form method="post">
 		{% csrf_token %}
-		<ul>
-			<li><tr><th><label for="id_hopid">Hopid:</label></th><td><input placeholder="123abc" type="text" name="hopid" required id="id_hopid"></td></tr></li>
-			<li><tr><th><label for="id_jhed">Jhed:</label></th><td><input placeholder="rdaniels1" type="text" name="jhed" required id="id_jhed"></td></tr></li>
-			<li><tr><th><label for="id_major">Major:</label></th><td><select name="major" required id="id_major">
+		<div class="form-group">
+			<label for="id_hopid">HopID:</label>
+			<input value="{{student.hopid}}"type="text" class="form-control" placeholder="Tip: Your HopID can be found in the top right of SIS." name="hopid" required id="id_hopid">
+		</div>
+		<div class="form-group">
+			<label for="id_jhed">JHED:</label>
+			<input value="{{student.jhed}}" type="text" class="form-control" name="jhed" required id="id_jhed">
+		</div>
+		<div class="form-group">
+			<label for="id_major">Major:</label>
+			<select class="form-control" name="major" required id="id_major">
 				<option value="Undecided">Undecided</option>
 				<option value="Africana Studies">Africana Studies</option>
 				<option value="Anthropology">Anthropology</option>
@@ -61,20 +67,25 @@
 				<option value="Sociology">Sociology</option>
 				<option value="Spanish">Spanish</option>
 				<option value="Writing Seminars">Writing Seminars</option>
-			</select></td></tr></li>
-			<li><tr><th><label for="id_grad_year">Grad year:</label></th><td><select name="grad_year" required id="id_grad_year">
-				<option value="2020">2020</option>
-				<option value="2021">2021</option>
-				<option value="2022">2022</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="id_grad_year">Graduation Year:</label>
+			<select class="form-control" name="grad_year" required id="id_grad_year">
 				<option value="2023">2023</option>
-				<option value="2024">2024</option>
-			</select></td></tr></li>
-			<li><tr><th><label for="id_pre_health">Pre health:</label></th><td><select name="pre_health" required id="id_pre_health">
+				<option value="2022">2022</option>
+				<option value="2021">2021</option>
+				<option value="2020">2020</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="id_pre_health">Pre Health:</label>
+			<select class="form-control" name="pre_health" required id="id_pre_health">
 				<option value="True">Yes</option>
 				<option value="False">No</option>
-			</select></td></tr></li><br>
+			</select>
+		</div>
 			<input type="submit" value="Submit">
-		</ul>
 	</form>
 </div>
 {% endblock content %}

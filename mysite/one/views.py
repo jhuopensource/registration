@@ -47,11 +47,11 @@ def get_data(request):
 			return redirect('one:results', pk=student_object.id)
 	# if a GET (or any other method) we'll create a blank form
 	else:
-		form = StudentForm()
 		user = request.user
+		student_object, created = StudentUser.objects.get_or_create(user=user)
 		context = {
 			'title': 'Student Information | PILOT Registration',
-			'user': user.username
+			'student': student_object
 		}
 		return render(request, 'one/student_info.html/', context=context)
 

@@ -30,10 +30,10 @@
 				{% if user.is_authenticated %}
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-link">
-						<a class="nav-item nav-link" href="{% url 'one:home' %}">Status</a>
+						<a class="nav-item nav-link" href="{% url 'one:home' %}">Enrollment Status</a>
 					</li>
 					<li class="nav-link">
-						<a class="nav-item nav-link" href="{% url 'one:results' student.id %}">Register</a>
+						<a class="nav-item nav-link" href="{% url 'one:results' student.id %}">Add</a>
 					</li>
 					<li class="nav-link">
 						<a class="nav-item nav-link" href="{% url 'one:drop' %}">Drop</a>
@@ -64,14 +64,19 @@
 		</div>
 		<div class="col-md-4">
 			<div class="content-section">
-				<h3>PILOT Updates</h3>
-				<p class='text-muted'>You can put any information here you'd like.
+				<h3 style="text-align: center;">FAQ</h3>
 				<ul class="list-group">
-					<li class="list-group-item list-group-item-light">Semester Changes</li>
-					<li class="list-group-item list-group-item-light">Announcements</li>
-					<li class="list-group-item list-group-item-light">Rules</li>
-					<li class="list-group-item list-group-item-light">etc</li>
+					<li class="list-group-item list-group-item-light"><b>WAITLIST</b><br>If you are on a waitlist,
+						we will email you when a space opens up. Thank you for your patience.</li>
+					<li class="list-group-item list-group-item-light"><b>TIMELINE</b><br>
+						PILOT Registration will close on Sunday, September 1st at 9pm. You will receive your session
+						placement from the PILOT Office by Friday, September 6th. PILOT sessions will start on Monday, September 9th.
+					<li class="list-group-item list-group-item-light"><b>SCHEDULE CHANGES</b><br>
+					If you need to request a schedule change, please fill out this
+					<a href="https://jhukrieger.co1.qualtrics.com/jfe/form/SV_6mqX35G2tlNF5KR.">form</a>. If sessions
+					are full we may not be able to immediately fulfill your request.  Thank you for your patience.</li>
 				</ul>
+				<p class='text-muted'>Still have questions? Contact Ariane Kelly at ariane.kelly@jhu.edu</p>
 				</p>
 			</div>
 		</div>
