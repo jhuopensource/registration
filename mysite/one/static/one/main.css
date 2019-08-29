@@ -221,6 +221,10 @@ a.article-title:hover {
 	width: 80%;
 }
 
+.text-indent {
+	margin-left: 2em;
+}
+
 .card-container {
 	display: grid;
 	margin: auto;

@@ -1,8 +1,8 @@
 {% extends "one/base.html" %}
 {% block content %}
 <div class="content-section">
-<h3>Hello, {{ student.jhed }}! </h3>
-	<p class="text-muted">These are the PILOT meeting times associated with the courses you chose. Please select only one preferred meeting time per course!</p>
+<h3>Select PILOT sessions </h3>
+	<p class="text-muted">These are the PILOT sessions associated with the courses you chose. You can only select one preferred meeting time per course.</p>
 	<form method="post" class="meetings_form">
 		{% csrf_token %}
 		{% for course, meeting in meetings.items %}

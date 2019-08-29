@@ -1,8 +1,8 @@
 {% extends "one/base.html" %}
 {% block content %}
 <div class="content-section">
-	<h3>Hello, {{student.jhed }}!</h3>
-	<p class="text-muted">Here are the PILOT sections you have selected, click 'Confirm' to solidify your registration results! </p>
+	<h3>Done!</h3>
+	<p class="text-muted"> Click above to keep adding and dropping PILOT sessions until Sunday, September 1st at 9pm. </p>
 	<div class="article-metadata">
 		<h5>You were <b>successfully</b> enrolled in the following PILOT sections: </h5>
 	</div><br>
@@ -43,8 +43,8 @@
 		{% csrf_token %}
 		<input class="green-button" type="submit" value="Ok">
 	</form><br>
-	<h7>You will receive an email confirmation to <b>{{student.jhed}}@jhu.edu</b> with your registration results.</h7><br>
-	<small>If you have concerns, please reach out to Ariane Kelly at <b>example@jhu.edu</b></small><br>
+	<!--<h7>You will receive an email confirmation to <b>{{student.jhed}}@jhu.edu</b> with your registration results.</h7><br>-->
+	<!--<small>If you have concerns, please reach out to Ariane Kelly at <b>example@jhu.edu</b></small><br>-->
 </div>
 
 {% endblock content %}

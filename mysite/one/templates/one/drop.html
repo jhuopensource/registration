@@ -1,24 +1,26 @@
 {% extends "one/base.html" %}
 {% block content %}
 <div class="content-section">
-    <h3>Drop a section</h3>
+    <h3>Drop a session</h3>
     <p class="text-muted"> Here is the status of your current PILOT enrollment requests.</p>
     <div class="article-metadata">
-        <h5>Enrolled sections:</h5>
+        <tr><th><label><b>Enrolled Sessions:</b></i> </label></th><td><ul>
     </div>
     {% if enrolled|length > 0 %}
         <form action="/drop/" method="post">
             {% csrf_token %}
             <ul>
             {% for meeting in enrolled %}
-                <li><input type="checkbox" name="meeting" value="{{meeting.id}}">
-                    {{ meeting.course }}
-                    {{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }}
+                <li><label><input type="checkbox" name="meeting" value="{{meeting.id}}">
+                    {{ meeting.course }} <br> <i class="text-muted text-indent"> {{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }}</i> </label>
                 </li>
+                <!--<li><input type="checkbox" name="meeting" value="{{meeting.id}}">-->
+                    <!--{{ meeting.course }}-->
+                    <!--{{ meeting.start_time}} - {{meeting.end_time}} {{ meeting.day }}-->
+                <!--</li>-->
             {% endfor %}
             </ul>
         <input type="submit" value="Drop" onclick="return validateAndSend()">
-            <p class="text-muted"> You will not be able to revert this action</p>
             <p id="select_text" class="errorlist"></p>
         </form>
     {% else %}
