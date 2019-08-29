@@ -1,13 +1,14 @@
 {% extends "one/base.html" %}
 {% block content %}
 <div class="content-section">
-	<h3>Hey, {{ user }}! Tell us about yourself!</h3>
-	<p class="text-muted">Please enter your JHU information below! In order for your registration request to be processed properly, your information must be correct! </p>
+	<h3>Hey, {{ user }}!</h3>
+	<p class="text-muted">Please enter your JHU information below. </p>
+	<p class="text-muted">Tip: Your Hopid can be found on the top right of SIS.</p>
 	<form method="post">
 		{% csrf_token %}
 		<ul>
-			<li><tr><th><label for="id_hopid">Hopid:</label></th><td><input type="text" name="hopid" required id="id_hopid"></td></tr></li>
-			<li><tr><th><label for="id_jhed">Jhed:</label></th><td><input type="text" name="jhed" required id="id_jhed"></td></tr></li>
+			<li><tr><th><label for="id_hopid">Hopid:</label></th><td><input placeholder="123abc" type="text" name="hopid" required id="id_hopid"></td></tr></li>
+			<li><tr><th><label for="id_jhed">Jhed:</label></th><td><input placeholder="rdaniels1" type="text" name="jhed" required id="id_jhed"></td></tr></li>
 			<li><tr><th><label for="id_major">Major:</label></th><td><select name="major" required id="id_major">
 				<option value="Undecided">Undecided</option>
 				<option value="Africana Studies">Africana Studies</option>
