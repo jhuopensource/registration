@@ -7,17 +7,18 @@
 				<h3>
 				Welcome to PILOT Registration!
 				</h3>
-			<p class="text-muted">Create an account in order to register for sections, keep up with the status of your enrollments, and more!</p>
+			<p class="text-muted">Login with SIS in order to register for sections, keep up with the status of your enrollments, and more!</p>
 		</fieldset>
 		{% if user.is_authenticated %}
 		<div>
 			<button type="submit">Begin Registration!</button>
 		</div>
 		{% else %}
-		<div>
-			<a class="nav-item nav-link" href="{% url 'one:sign_in' %}">Create an Account</a>
-			<a class="nav-item nav-link" href="{% url 'one:login' %}">Login</a>
-		</div>
+		<a class="nav-item nav-link" href="/login/jhu">Login with SIS</a>
+		<!--<div>-->
+			<!--<a class="nav-item nav-link" href="{% url 'one:sign_in' %}">Create an Account</a>-->
+			<!--<a class="nav-item nav-link" href="{% url 'one:login' %}">Login</a>-->
+		<!--</div>-->
 		{% endif %}
 	</form>
 </div>
