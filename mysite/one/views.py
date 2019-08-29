@@ -9,14 +9,20 @@ from .models import Course, Meeting, StudentUser
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
-
+#
+# def live_decorator(the_func):
+# 	"""
+#     Check if the site is activated
+#     """
+# 	def _decorator(func):
+# 		print("HELLO")
+# 		return redirect('one:login')
+# 	return _decorator
+#
+# @live_decorator
 def welcome(request):
 	if request.method == 'POST':
-		user = request.user.id
-		context = {
-			'title': 'Welcome | PILOT Registration'
-		}
-		return redirect('one:data', context=context)
+		return redirect('one:data')
 	else:
 		if StudentUser.objects.filter(user=request.user.id).exists():
 			return redirect('one:status')
