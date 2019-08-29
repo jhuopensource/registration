@@ -144,10 +144,18 @@ a.article-title:hover {
 	margin-right: 16px;
 }
 
+.drop-btn {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-size: .7em;
+}
+
 .article-metadata {
 	padding-bottom: 1px;
 	margin-bottom: 4px;
-	border-bottom: 1px solid #e3e3e3
+	border-bottom: 1px solid #e3e3e3;
+	position: relative;
 }
 
 .article-metadata a:hover {
