@@ -31,7 +31,6 @@ def welcome(request):
 		else:
 			return render(request, 'one/welcome.html/')
 
-@live_decorator
 @login_required
 def get_data(request):
 	# if this is a POST request we need to process the form data
@@ -64,7 +63,6 @@ def get_data(request):
 		}
 		return render(request, 'one/student_info.html/', context=context)
 
-@live_decorator
 @login_required
 def get_results(request, pk):
 	student = StudentUser.objects.filter(id=pk).first()
@@ -79,7 +77,6 @@ def get_results(request, pk):
 		}
 		return render(request, 'one/results.html/', context=context)
 
-@live_decorator
 @login_required
 def details(request, pk):
 	student = StudentUser.objects.filter(id=pk).first()
@@ -100,7 +97,6 @@ def details(request, pk):
 	}
 	return render(request, 'one/detail.html/', context=context)
 
-@live_decorator
 @login_required
 def get_courses(request, pk):
 	student = StudentUser.objects.filter(id=pk).first()
@@ -117,7 +113,6 @@ def get_courses(request, pk):
 		# redirect to a new URL:
 		return redirect('one:meetings', pk=student.id, course_list=course_string)
 
-@live_decorator
 @login_required
 def get_details(request, pk, course_list):
 	student = get_object_or_404(StudentUser, pk=pk)
@@ -161,7 +156,6 @@ def get_details(request, pk, course_list):
 		}
 		return render(request, 'one/meetings.html/', context=context)
 
-@live_decorator
 @login_required
 def register_results(request, pk, course_list, vacant, full):
 	doubles = []
@@ -200,7 +194,6 @@ def register_results(request, pk, course_list, vacant, full):
 		}
 		return render(request, 'one/register_results.html/', context=context)
 
-@live_decorator
 @login_required
 def status(request):
 	if request.method == 'POST':
@@ -222,7 +215,6 @@ def status(request):
 		}
 		return render(request, 'one/status.html', context=context)
 
-@live_decorator
 @login_required
 def drop(request):
 	if request.method == 'POST':
