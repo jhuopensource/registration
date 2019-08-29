@@ -7,6 +7,7 @@ app_name = 'one'
 urlpatterns = [
 	path('', views.welcome, name='home'),
 	path('status/', views.status, name='status'),
+	path('drop/', views.drop, name='drop'),
 	path('signin/', user_views.create_user, name='sign_in'),
 	path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
 	path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),

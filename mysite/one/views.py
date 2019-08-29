@@ -80,7 +80,7 @@ def details(request, pk):
 	registered_courses = []
 	for r in registered:
 		registered_courses.append(str(r.course))
-	print(registered_courses)
+	# print(registered_courses)
 	context = {
 		'title': 'Courses | PILOT Registration',
 		'student': student,
@@ -204,3 +204,37 @@ def status(request):
 			'waitlist': waitlist
 		}
 		return render(request, 'one/status.html', context=context)
+
+@login_required
+def drop(request):
+	if request.method == 'POST':
+		user = request.user
+		student = get_object_or_404(StudentUser, user=user)
+		meetings = request.POST.getlist('meeting')
+		# drop selected class
+		for id in meetings:
+			m = Meeting.objects.get(id=int(id))
+			m.students.remove(student)
+		# return to homepage
+		student = get_object_or_404(StudentUser, user=user)
+		enrolled = list(Meeting.objects.filter(students=student))
+		waitlist = list(Meeting.objects.filter(waitlist=student))
+		context = {
+			'title': 'Your Status | PILOT Registration',
+			'student': student,
+			'enrolled': enrolled,
+			'waitlist': waitlist
+		}
+		return render(request, 'one/status.html', context=context)
+	else:
+		user = request.user
+		student = get_object_or_404(StudentUser, user=user)
+		enrolled = list(Meeting.objects.filter(students=student))
+		waitlist = list(Meeting.objects.filter(waitlist=student))
+		context = {
+			'title': 'Your Status | PILOT Registration',
+			'student': student,
+			'enrolled': enrolled,
+			'waitlist': waitlist
+		}
+		return render(request, 'one/drop.html', context=context)
