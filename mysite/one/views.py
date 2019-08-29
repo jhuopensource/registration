@@ -8,6 +8,7 @@ from .forms import StudentForm, CourseForm
 from .models import Course, Meeting, StudentUser
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 
 def welcome(request):
 	if request.method == 'POST':
@@ -118,13 +119,15 @@ def get_details(request, pk, course_list):
 				course_string += str(id) + "%"
 				if Meeting.objects.filter(course=get_object_or_404(Course, pk=str(id))).exists():
 					data = request.POST[id]
-					meeting = get_object_or_404(Meeting, pk=str(data))
-					if meeting.enrollment < meeting.max:
-						vacant_string += str(data) + "%"
-						meeting.students.add(student)
-					else:
-						full_string += str(data) + "%"
-						meeting.waitlist.add(student)
+					with transaction.atomic():
+						meeting = Meeting.objects.filter(pk=str(data)).select_for_update()[0]
+						if meeting.enrollment < meeting.max:
+							vacant_string += str(data) + "%"
+							meeting.students.add(student)
+						else:
+							full_string += str(data) + "%"
+							meeting.waitlist.add(student)
+						meeting.save()
 		if full_string == '':
 			full_string = "%"
 		if vacant_string == '':
