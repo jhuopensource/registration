@@ -2,3 +2,5 @@
 .idea/
 env/
 .vscode/
+secret.env
+mysite/mysite/local_settings.py
