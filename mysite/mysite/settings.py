@@ -11,23 +11,33 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
+import logging
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def get_secret(key):
+    """
+    Returns the value for a secret by the given key.
+    Will first look for a corresponding environment variable.
+    """
+    try:
+        return os.environ[key]
+    except KeyError:
+        raise ValueError("""'%s' not correctly configured.""" % key)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x9@boi3s9a$)zw3b4go*c^y0gt$!sorlzk01bbjkdt%gh+9qnd'
+SECRET_KEY = get_secret('SECRET_KEY')
 
+# TODO: Turn debug to false
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
-
 
 # Application definition
 
@@ -76,10 +86,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-
+# TODO: set env variables for databast
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': '',
+        # 'USER': '',
+        # 'PASSWORD': '',
         'NAME': 'postgres',
         'USER': 'postgres',
         'HOST': 'db',
@@ -88,9 +101,8 @@ DATABASES = {
 }
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-
-SOCIAL_AUTH_JHU_KEY= 'ad2d0f8d-0922-4463-8163-e3a78c7badc0'
-SOCIAL_AUTH_JHU_SECRET = 'askali'
+SOCIAL_AUTH_JHU_KEY = get_secret('SOCIAL_AUTH_JHU_KEY')
+SOCIAL_AUTH_JHU_SECRET = get_secret('SOCIAL_AUTH_JHU_SECRET')
 
 # Use staging environment, remove these to default to production
 SOCIAL_AUTH_JHU_AUTHORIZATION_URL = 'https://slife.jh.edu/VEGAS/oauth/authorize'
