@@ -5,5 +5,24 @@ To start:
 $ docker-compose build
 $ docker-compose up
 
+Set local env:
+- Create local_settings.py with db settings
+EX: registration/mysite/mysite/local_settings.py
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': '',
+            'HOST': 'db',
+            'PORT': 5432,
+        }
+    }
+- Set env vars
+EX: registrtion/secret.env
+    SECRET_KEY=...
+    SOCIAL_AUTH_JHU_SECRET=...
+    SOCIAL_AUTH_JHU_KEY=...
+
 To download data:
 python mysite/manage.py loaddata datadump.json

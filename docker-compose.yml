@@ -7,13 +7,12 @@ services:
      - "5432:5432"
  web:
    image: registration
+   env_file:
+     - secret.env
    environment:
-     - SECRET_KEY # might need to add extra $ to escape $ (i.e. turn abc$abc to abc$$abc)
-     - SOCIAL_AUTH_JHU_KEY
-     - SOCIAL_AUTH_JHU_SECRET
-     - DB_NAME
-     - DB_USER
-     - DB_PASS
+     - SECRET_KEY:${SECRET_KEY} # might need to add extra $ to escape $ (i.e. turn abc$abc to abc$$abc)
+     - SOCIAL_AUTH_JHU_KEY:${SOCIAL_AUTH_JHU_KEY}
+     - SOCIAL_AUTH_JHU_SECRET:${SOCIAL_AUTH_JHU_SECRET}
      - NODE_ENV=development
      - PYTHONUNBUFFERED=0
    build: .
