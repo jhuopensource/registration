@@ -40,7 +40,7 @@ class Course(models.Model):
 	code = models.CharField(max_length=200, default='0')
 
 	def __str__(self):
-		return self.name + ' with Professor ' + self.prof
+		return self.name
 
 class CourseForm(ModelForm):
 	class Meta:
