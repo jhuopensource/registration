@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
-import logging
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -33,7 +32,6 @@ def get_secret(key):
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_secret('SECRET_KEY')
 
-# TODO: Turn debug to false
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -86,15 +84,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-# TODO: set env variables for databast
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': '',
-        # 'USER': '',
-        # 'PASSWORD': '',
-        'NAME': 'postgres',
-        'USER': 'postgres',
+        'NAME': get_secret('DB_NAME'),
+        'USER': get_secret('DB_USER'),
+        'PASSWORD': get_secret('DB_PASS'),
         'HOST': 'db',
         'PORT': 5432,
     }
