@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': get_secret('DB_NAME'),
-        'USER': get_secret('DB_USER'),
-        'PASSWORD': get_secret('DB_PASS'),
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'db',
         'PORT': 5432,
     }
@@ -150,3 +150,8 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'one:home'
 LOGIN_URL = 'login'
+
+try:
+    from .local_settings import DATABASES
+except:
+    pass
