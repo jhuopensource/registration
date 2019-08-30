@@ -87,12 +87,12 @@ def details(request, pk):
 	registered = list(enrolled) + list(waitlist)
 	registered_courses = []
 	for r in registered:
-		registered_courses.append(str(r.course))
-	# print(registered_courses)
+		registered_courses.append(str(r.course.name))
+	print(registered_courses)
 	context = {
 		'title': 'Courses | PILOT Registration',
 		'student': student,
-		'course_list': courses,
+		'courses': courses,
 		'registered': registered_courses,
 	}
 	return render(request, 'one/detail.html/', context=context)

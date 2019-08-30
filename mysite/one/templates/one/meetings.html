@@ -6,7 +6,7 @@
 	<form method="post" class="meetings_form">
 		{% csrf_token %}
 		{% for course, meeting in meetings.items %}
-		<h5>{{ course.name }}<span class="text-muted prof"><i> with {{ course.prof }}</i></span></h5>
+		<h5>{{ course.name }}<span class="text-muted prof"></span></h5>
 			<ul>
 			{% for time in meeting %}
 					<li><input type="radio" name="{{course.id}}" value="{{time.id}}">
