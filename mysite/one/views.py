@@ -21,7 +21,7 @@ def live_decorator(the_func):
 			return render(request, 'one/down.html/')
 	return _decorator
 
-@live_decorator
+#@live_decorator
 def welcome(request):
 	if request.method == 'POST':
 		return redirect('one:data')
