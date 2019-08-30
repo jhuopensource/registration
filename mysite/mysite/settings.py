@@ -100,9 +100,9 @@ SOCIAL_AUTH_JHU_KEY = get_secret('SOCIAL_AUTH_JHU_KEY')
 SOCIAL_AUTH_JHU_SECRET = get_secret('SOCIAL_AUTH_JHU_SECRET')
 
 # Use staging environment, remove these to default to production
-SOCIAL_AUTH_JHU_AUTHORIZATION_URL = 'https://slife.jh.edu/VEGAS/oauth/authorize'
-SOCIAL_AUTH_JHU_ACCESS_TOKEN_URL = 'https://slife.jh.edu/VEGAS/api/oauth2/token'
-SOCIAL_AUTH_JHU_ISSUER = 'https://slife.jh.edu'
+#SOCIAL_AUTH_JHU_AUTHORIZATION_URL = 'https://slife.jh.edu/VEGAS/oauth/authorize'
+#SOCIAL_AUTH_JHU_ACCESS_TOKEN_URL = 'https://slife.jh.edu/VEGAS/api/oauth2/token'
+#SOCIAL_AUTH_JHU_ISSUER = 'https://slife.jh.edu'
 
 AUTHENTICATION_BACKENDS = (
     'mysite.jhu.JHUOAuth2',
